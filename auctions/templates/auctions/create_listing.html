@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+<div class="d-flex my-5 justify-content-center align-items-center h-100 w-100">
+  <div class="container-md d-flex flex-column justify-content-center border rounded">
+    <form  class = "mt-5 mx-5" acion = "{%url 'new_listing'%}" method = "POST">
+      {% csrf_token %}
+      <h3 class="w-100 my-5 text-center text-black-50">Create Listing</h3>
+      <div class="mb-3">
+        <label for="title" class="form-label text-black-70">{{form.title.label}}:</label>
+        {{form.title}}
+      </div>
+      <div class="mb-3">
+        <label for="starting_bid" class="form-label text-black-70">{{form.starting_bid.label}}:</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          {{form.starting_bid}}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="photo" class="form-label text-black-70">{{form.photo.label}} (enter your URL):</label>
+        {{form.photo}}
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label text-black-70">{{form.category.label}}:</label>
+        {{form.category}}
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label text-black-70">{{form.description.label}}:</label>
+        {{form.description}}
+      </div>
+      <div class="d-flex justify-content-center w-100">
+        <input class="btn btn-primary my-2" type = "submit" value="Create">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

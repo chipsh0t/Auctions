@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h3 class="w-100 my-5 text-center text-black-50">
+        {% if user.is_authenticated %}
+            Welcome, {{user.username}} !
+        {% else %}
+            Active Listings
+        {% endif %}
+    </h3>
+    
+    {% include 'auctions/listing_card.html'%}
+    
+{% endblock %}

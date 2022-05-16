@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% if listings %}
+  <div class="mt-5">
+    {% include 'auctions/listing_card.html' %}
+  </div>
+{% else %}
+  <div class="w-100 mt-5 text-center">
+    <div class="alert alert-warning mx-5">No items in this category!</div>
+  </div>
+{% endif %}
+{% endblock %}

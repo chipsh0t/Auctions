@@ -1,0 +1,25 @@
+<!-- Lisitng card html, shared by: index, category, watchlist. -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+        {% for listing in listings %}
+            <div class="col">
+                <a href="{% url 'listing_page' listing.id %}">
+                    <div class="card h-100">
+                        <img src="{{listing.photo}}" alt="{{listing.title}}">
+                        <div class="card-body text-black">
+                            <h5 class="card-title">
+                                {{listing.title}}
+                            </h5>
+                            <p class="card-text">
+                                {{listing.description}}
+                            </p>
+                            <p class="card-text text-black-50">
+                                listed by: {{listing.creator.username}}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
